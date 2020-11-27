@@ -1,4 +1,4 @@
-FROM node:10-slim
+FROM 10.1.1.6:443/docker-local/node
 
 WORKDIR /app
 
