@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.0.0-sdk
+FROM 10.1.1.6:443/docker-local/microsoft-dotnet
 
 WORKDIR /code
 
