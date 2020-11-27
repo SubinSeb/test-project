@@ -1,10 +1,12 @@
 pipeline {
   agent any
+  environment {
+    DOCKER_CONTENT_TRUST=1
+  }
   stages {
     stage("Fix the permission issue") {
       steps {
         sh "sudo chown root:jenkins /run/docker.sock"
-        sh "export DOCKER_CONTENT_TRUST=1"
       }
     }  
     stage('Build result') {
