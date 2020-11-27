@@ -4,6 +4,7 @@ pipeline {
     stage("Fix the permission issue") {
       steps {
         sh "sudo chown root:jenkins /run/docker.sock"
+        sh "export DOCKER_CONTENT_TRUST=1"
       }
     }  
     stage('Build result') {
