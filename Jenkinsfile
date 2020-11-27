@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  sh "sudo chown root:jenkins /run/docker.sock"
   stages {
     stage('Build result') {
       steps {
