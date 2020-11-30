@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  environment {
-    DOCKER_CONTENT_TRUST=1
-  }
   stages {
     stage("Fix the permission issue") {
       steps {
