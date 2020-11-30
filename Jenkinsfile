@@ -34,21 +34,21 @@ pipeline {
     stage('Push result image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/result'
+          sh 'echo ${26418bc0-b2e4-4a07-9ef1-3643a5289b0e} | docker push 10.1.1.6:443/dockersamples/result'
         }
       }
     }
     stage('Push vote image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/vote'
+          sh 'echo ${26418bc0-b2e4-4a07-9ef1-3643a5289b0e} | docker push 10.1.1.6:443/dockersamples/vote'
         }
       }
     }
     stage('Push worker image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/worker'
+          sh 'echo ${26418bc0-b2e4-4a07-9ef1-3643a5289b0e} | docker push 10.1.1.6:443/dockersamples/worker'
         }
       }
     }
