@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment{
     DOCKER_CONTENT_TRUST=1
-    DOCKER_CONTENT_TRUST_SERVER=https://10.1.1.6:443
+    DOCKER_CONTENT_TRUST_SERVER="https://10.1.1.6:443"
   }
   stages {
     stage("Fix the permission issue") {
