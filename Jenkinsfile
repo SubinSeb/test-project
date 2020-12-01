@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("Fix the permission issue") {
       steps {
-        sh "sudo su; export DOCKER_CONTENT_TRUST=1; export DOCKER_CONTENT_TRUST_SERVER='https://10.1.1.6:443'; export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${26418bc0-b2e4-4a07-9ef1-3643a5289b0e}; export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=${26418bc0-b2e4-4a07-9ef1-3643a5289b0e} "
+        sh "sudo su; export DOCKER_CONTENT_TRUST=1; export DOCKER_CONTENT_TRUST_SERVER='https://10.1.1.6:443'; export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE='${26418bc0-b2e4-4a07-9ef1-3643a5289b0e}'; export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE='${26418bc0-b2e4-4a07-9ef1-3643a5289b0e}' "
         sh "sudo chown root:jenkins /run/docker.sock"
       }
     }  
