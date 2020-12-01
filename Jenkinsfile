@@ -9,21 +9,24 @@ pipeline {
     stage('Build result') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/docker-local') {
-          sh 'sudo docker build -t 10.1.1.6:443/dockersamples/result:latest ./result --disable-content-trust=0'
+          sh '''sudo su
+              docker build -t 10.1.1.6:443/dockersamples/result:latest ./result --disable-content-trust=0'''
         }  
       }
     } 
     stage('Build vote') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/docker-local') {
-          sh 'sudo docker build -t 10.1.1.6:443/dockersamples/vote:latest ./vote --disable-content-trust=0'
+          sh '''sudo su
+             docker build -t 10.1.1.6:443/dockersamples/vote:latest ./vote --disable-content-trust=0'''
         }  
       }
     }
     stage('Build worker') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/docker-local') {
-          sh 'sudo docker build -t 10.1.1.6:443/dockersamples/worker:latest ./worker --disable-content-trust=0'
+          sh '''sudo su
+              docker build -t 10.1.1.6:443/dockersamples/worker:latest ./worker --disable-content-trust=0'''
         }  
       }
     }
