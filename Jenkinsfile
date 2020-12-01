@@ -31,21 +31,21 @@ pipeline {
     stage('Push result image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/result:latest --disable-content-trust=0'
+          sh 'sudo su; docker push 10.1.1.6:443/dockersamples/result:latest --disable-content-trust=0'
         }
       }
     }
     stage('Push vote image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/vote:latest --disable-content-trust=0'
+          sh 'sudo su; docker push 10.1.1.6:443/dockersamples/vote:latest --disable-content-trust=0'
         }
       }
     }
     stage('Push worker image') {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
-          sh 'docker push 10.1.1.6:443/dockersamples/worker:latest --disable-content-trust=0'
+          sh 'sudo su; docker push 10.1.1.6:443/dockersamples/worker:latest --disable-content-trust=0'
         }
       }
     }
