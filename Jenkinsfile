@@ -31,6 +31,7 @@ pipeline {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
           sh '''sudo chown root:jenkins /run/docker.sock
+              sudo docker login -u admin -p Tel1234# https://10.1.1.6:443/docker-local
               export DOCKER_CONTENT_TRUST_SERVER='https://10.1.1.6:443'
               export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE='qwerty12345' 
               export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE='qwerty12345'
