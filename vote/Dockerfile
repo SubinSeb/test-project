@@ -1,5 +1,5 @@
 # Using official python runtime base image
-FROM 10.1.1.6:443/docker-local/python
+FROM 10.1.1.6:443/docker-unsigned/python
 
 # Set the application directory
 WORKDIR /app
