@@ -4,7 +4,7 @@ pipeline {
     stage("Fix the permission issue") {
       steps {
         sh "sudo su; export DOCKER_CONTENT_TRUST=1; export DOCKER_CONTENT_TRUST_SERVER='https://10.1.1.6:443'; export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE='qwerty12345'; export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE='qwerty12345'; "
-        sh "sudo chown root:jenkins /run/docker.sock"
+        sh "#sudo chown root:jenkins /run/docker.sock"
       }
     }  
     stage('Build result') {
