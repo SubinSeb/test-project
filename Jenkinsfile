@@ -31,7 +31,10 @@ pipeline {
       steps {
         withDockerRegistry(credentialsId: '2d946ebb-4b0c-4a32-8756-f115273f9f61', url:'https://10.1.1.6:443/dockersamples') {
           sh '''sudo chown root:jenkins /run/docker.sock
-              echo 'qwerty12345' | sudo -S docker push 10.1.1.6:443/dockersamples/result:latest --disable-content-trust=0'''
+              export DOCKER_CONTENT_TRUST_SERVER='https://10.1.1.6:443'
+              export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE='qwerty12345' 
+              export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE='qwerty12345'
+              docker push 10.1.1.6:443/dockersamples/result:latest --disable-content-trust=0'''
         }
       }
     }
